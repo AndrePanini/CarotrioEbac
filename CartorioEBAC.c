@@ -115,6 +115,31 @@ int excluir()//Função excluir
 	
 }
 
+int sair()
+{
+	int escolha;
+
+	printf("Deseja mesmo sair do programa? (1 = Sim, 0 = Não): ");//Confirmação de saida
+	scanf("%d", &escolha);//Usuário realiza a escolha se deseja ou não sair do programa
+
+	if (escolha == 1)//Escolha 1
+	{
+		printf("Obrigado por usar o nosso programa!\n");
+		return 0;
+	}
+	else if (escolha == 0)//Escolha 0
+	{
+		return 1;
+	}
+	else
+	{
+		printf("Opção inválida!\n");
+		return 1;
+	}
+	
+     
+}
+
 int padrao()//Função padrão
 {
 	printf("Opção inválida! Digite uma das opções existentes\n");
@@ -137,7 +162,8 @@ int main()
 	printf("Selecione uma das três opções abaixo \n\n");
 	printf("\t1 **Incluir nome** \n");
 	printf("\t2 **Consultar nome** \n ");
-	printf("\t3 **Excluir nome** \n\n");//Fim do menu
+	printf("\t3 **Excluir nome** \n");
+	printf("\t4 **Sair do programa** \n\n");
 	printf("Digite o número da opção desejada: ");
 
     scanf("%d", &opcao);//Escolha do usuário
@@ -157,6 +183,14 @@ int main()
     	
     	case 3://Escolha 3
     	excluir();
+    	break;
+    	
+    	case 4://Escolha 4
+    	if (sair() == 0)
+    	{
+    		return 0;
+		}
+    	
     	break;
     	
     	default://Escolha padrão
